@@ -1,0 +1,227 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+.none {
+    display: none;
+}
+
+.wrap {
+    max-width: 1200px;
+    width: 95%;
+    margin: 20px auto;
+    height: 100vh;
+    background-color: darkslategrey;
+}
+
+.h1 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav {
+    max-width: 400px;
+    width: 95%;
+    margin: 0 auto 30px;
+}
+
+.nav-ul {
+    display: flex;
+    justify-items: center;
+}
+
+.nav-ul li {
+    flex: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.nav-ul li a {
+    font-size: 22px;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+.nav-ul li a:hover {
+    color: deepskyblue;
+}
+
+li a {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.info-wrap {
+    max-width: 250px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.info-box {
+    display: flex;
+    justify-items: center;
+}
+
+.info-box li {
+    flex: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.info-box li a {
+    color: deepskyblue;
+}
+
+.info-box li a:hover {
+    color: antiquewhite;
+}
+
+
+.section {
+    max-width: 600px;
+    width: 95%;
+    margin: 50px auto 0;
+}
+
+.section article {
+    margin: 20px auto 0;
+    color: #fff;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.form-wrap label {
+    display: inline-block;
+    width: 60px;
+}
+
+.form-wrap div {
+    margin-bottom: 10px;
+}
+
+.form-wrap input {
+    width: 150px;
+}
+
+.btn-add {
+    margin-top: 20px;
+    padding: 10px;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+.btn-add:hover {
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+footer {
+    color: aliceblue;
+    margin: 50px auto 20px;
+    text-align: center;
+    position: relative;
+    bottom: -180px;
+}
+
+/*프로필*/
+.order1 {
+    width: 500px;
+    margin: 60px auto 0px auto;
+    padding-bottom: 60px;
+}
+
+.order1 > table {
+    margin: 40px 0;
+    font-size: 18px;
+}
+
+
+.maintitle1 {
+    width: 95%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+/*포스트*/
+.mytitle2 {
+    width: 95%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.mypost2 {
+    width: 95%;
+    max-width: 500px;
+    margin: 20px auto 0px auto;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px gray;
+}
+
+.mybtns2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.mybtns2 > button {
+    margin-right: 10px;
+}
+
+/*포스트리스트*/
+.maintitle3 {
+    width: 95%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.mybox3 {
+    width: 95%;
+    max-width: 700px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px lightblue;
+    margin: 20px auto;
+}
+
+
+.mybucket3 > input {
+    width: 70%;
+}
+
+.mybox3 > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+    min-height: 48px;
+}
+
+.mybox3 > li > h2 {
+    max-width: 75%;
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+.mybox3 > li > h2.done {
+    text-decoration: line-through
+}
