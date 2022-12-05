@@ -30,12 +30,62 @@
         </ul>
     </div>
     <section class="section">
+        <article class="profile none">
+            <div class="order1" id="profile_box1">
+                <div class="order-info">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">이름</span>
+                        <input id="name" type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">블로그</span>
+                        <input id="address" type="text" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="size">희망 언어</label>
+                        <select class="form-select" id="size">
+                            <option selected>-- 언어 --</option>
+                            <option value="React">REACT</option>
+                            <option value="Node">NODE.JS</option>
+                            <option value="Spring">SPRING</option>
+                        </select>
+                    </div>
+                    <button onclick="save_order1()" type="button" class="btn btn-warning mybtn3">저장하기</button>
+                </div>
+                <table class="table1">
+                    <tbody id="order-box1">
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        <article class="post none">
+            <div class="mypost2" id="post-box2">
+                <div class="form-floating">
+                    <textarea id="comment" class="form-control" placeholder="배운점 작성하기"></textarea>
+                    <label for="floatingTextarea2"></label>
+                </div>
+                <div class="mybtns2">
+                    <button onclick="posting2()" type="button" class="btn btn-dark">작성하기</button>
+                </div>
+            </div>
+        </article>
+        <article class="postlist none">
+            <div class="mybox3" id="post-list3">
+                <li>
+                    <h2> 읽기 미완료</h2>
+                    <button onclick="done_post(5)" type="button" class="btn btn-warning">읽음!</button>
+                </li>
+                <li>
+                    <h2 class="done3"> 읽기 완료</h2>
+                </li>
+            </div>
+        </article>
         <article class="sign">
             <h2>회원가입</h2>
             <div class="form-wrap">
                 <div>
                     <label for="input-email">email</label>
-                <input type="text" id="input-email" placeholder="예) email@gmail.com">
+                    <input type="text" id="input-email" placeholder="예) email@gmail.com">
                 </div>
                 <div>
                     <label for="input-pw">PW</label>
@@ -61,7 +111,7 @@
             <div class="form-wrap">
                 <div>
                     <label for="login-email">email</label>
-                <input type="text" id="login-email" placeholder="이메일을 입력하세요.">
+                    <input type="text" id="login-email" placeholder="이메일을 입력하세요.">
                 </div>
                 <div>
                     <label for="login-pw">PW</label>
