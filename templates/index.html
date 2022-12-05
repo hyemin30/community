@@ -1,9 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
+<style>
+    nav {
+        font-size: 12pt;
+        font-family: 'PT Sans', Arial, Sans-serif;
+        position: relative;
+    }
+
+    nav ul {
+        padding: 0;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    nav li {
+    }
+
+    nav a {
+        line-height: 50px;
+        height: 50px;
+    }
+
+    nav li a {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    nav li:last-child a {
+        border-right: 0;
+    }
+
+    nav a:hover, nav a:active {
+    }
+
+    nav a#pull {
+        display: none;
+    }
+
+    html {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    ul {
+        /*list-style-type: none;*/
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+    }
+
+    li {
+        /*position: relative;*/
+        display: inline-block;
+    }
+
+    li a {
+        color: #FFFFFF;
+        text-align: center;
+        padding: 14.5px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        /*color: #597812;*/
+        color: #FFD400;
+        font-weight: normal;
+    }
+
+    .menu {
+        width: 5000px;
+        height: 50px;
+        text-align: center;
+        max-width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-color: #333333;
+        color: white;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .title {
+        color: white;
+
+        width: 100%;
+        weight: 250px;
+
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://search.pstatic.net/common/?src=https%3A%2F%2Fditto-phinf.pstatic.net%2F20221123_213%2F1669172339314gmp7J_PNG%2F3abf739e133b48fd4ec131f384364081.png&type=o&size=488x470&ttype=input");
+        background-position: center;
+        background-size: inherit;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 10px;
+    }
+</style>
+<script>
+
+</script>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>항해 11기</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="title">
+<h1>항해 11기</h1>
+<p>이 사이트는 항해11기 정보 공유를 위한 사이트입니다.</p>
+<p><a href="https://teamsparta.notion.site/99-11-Main-Docs-fe5ce05f6ee64ed6b560020ae95c2ede" target="_blank">항해99</a>노션으로
+    이동합니다.</p>
+
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" style="background-color:#F6F6F6">
+<div class="menu">
+    <nav class="clearfix">
+        <ul class="clearfix">
+            <li><a href="http://www._____.com">Spring</a></li> <!--""<-여기 부분에 URL 작성하면 됨-->
+            <li><a href="http://www._____.com/About">Nord.Js</a></li>
+            <li><a href="http://www._____.com/Project">React</a></li>
+        </ul>
+        <a id="pull" href="#"></a>
+    </nav>
+</div>
+</body>
 </body>
 </html>
