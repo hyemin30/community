@@ -57,8 +57,14 @@ def join_post():
     lang_receive = request.form['lang_give']
     blog_url_receive = request.form['blog_url_give']
 
-    if email_receive == "" or passwd_receive == "" or name_receive == "":
-        return "필수값을 입력하세요"
+    member_list = list(db.members.find({}, {'_id': False}))
+
+    for member in member_list:
+        if member['email'] == email_receive:
+            return "이미 가입된 이메일 주소입니다."
+
+    if email_receive == "" or passwd_receive == "" or name_receive == "" or lang_receive == "":
+        return "필수값을 입력해주세요."
 
     doc = {
         'email': email_receive,
