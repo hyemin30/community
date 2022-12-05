@@ -63,6 +63,7 @@ def join_post():
         if member['email'] == email_receive:
             return "이미 가입된 이메일 주소입니다."
 
+
     if email_receive == "" or passwd_receive == "" or name_receive == "" or lang_receive == "":
         return "필수값을 입력해주세요."
 
@@ -91,10 +92,11 @@ def login_post():
 
     login_member = db.members.find_one({"email": email_receive})
 
-    if login_member.password == passwd_receive:
+    if login_member['passwd'] == passwd_receive:
         response = make_response()
+        response.set_cookie('emailCookie', login_member['email'])
 
-        return "로그인 전용 홈페이지 입장"
+        return response
     else:
         return '비밀번호가 일치하지 않습니다.'
 
