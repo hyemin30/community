@@ -63,12 +63,12 @@ def edit_form():
 @app.route('/edit', methods=["POST"])
 def edit():
     num_receive = request.form['num_give']
-    content_receive = request.form['content_give']
+    content_receive = request.form['post_give']
     db.postings.update_one({'num': num_receive}, {'$set': {'content': content_receive}})
     return jsonify({'msg': '작성 완료'})
 
 
- #좋아요
+#좋아요
 @app.route('/like', methods=["POST"])
 def like():
     num_receive = request.form['num_give']
