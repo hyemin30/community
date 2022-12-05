@@ -51,40 +51,21 @@ def join_get():
 #회원 가입
 @app.route("/join", methods=["POST"])
 def join_post():
-    blog_url_receive, email_receive, lang_receive, name_receive, passwd_receive = receive_data()
-
-    comments = list(db.members.find({}, {'_id': False}))
-
-    if data_validate(email_receive, lang_receive, name_receive, passwd_receive):
-        return "필수값을 입력하세요"
-
-    save(blog_url_receive, email_receive, lang_receive, name_receive, passwd_receive)
-
-    return jsonify({'msg': '가입 완료'})
-
-
-def data_validate(email_receive, lang_receive, name_receive, passwd_receive):
-    return email_receive == "" or passwd_receive == "" or name_receive == "" or lang_receive
-
-
-def save(blog_url_receive, email_receive, lang_receive, name_receive, passwd_receive):
-    doc = {
-        'email': email_receive,
-        'passwd': passwd_receive,
-        'name': name_receive,
-        'language': lang_receive,
-        'blog_url': blog_url_receive
-    }
-    db.members.insert_one(doc)
-
-
-def receive_data():
     email_receive = request.form['email_give']
     passwd_receive = request.form['passwd_give']
     name_receive = request.form['name_give']
-    lang_receive = request.form['lang_give']
-    blog_url_receive = request.form['blog_url_give']
-    return blog_url_receive, email_receive, lang_receive, name_receive, passwd_receive
+
+    if email_receive == "" or passwd_receive == "" or name_receive == "":
+        return "필수값을 입력하세요"
+
+    doc = {
+        'email': email_receive,
+        'passwd': passwd_receive,
+        'name': name_receive
+    }
+    db.members.insert_one(doc)
+
+    return jsonify({'msg': '가입 완료'})
 
 
 #로그인 페이지
@@ -106,6 +87,8 @@ def login_post():
         return "로그인 전용 홈페이지 입장"
     else:
         return '비밀번호가 일치하지 않습니다.'
+
+
 
 
 
