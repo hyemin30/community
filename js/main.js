@@ -1,3 +1,39 @@
+
+
+// 회원가입
+function check_sign(){
+    let emailVal = $('#input-email').val();
+    let pwVal = $('#input-pw').val();
+    let nicknameVal = $('#input-nickname').val();
+    let langVal = $('#input-lang').val();
+    let blogVal = $('#input-blog').val();
+    
+    $.ajax({
+        type: "POST",
+        url: "/sign",
+        data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
+        success: function(response){
+        console.log(response);
+        }
+    })
+}
+
+
+// 로그인
+function check_login(){
+    let loginEmailVal = $('#login-email').val();
+    let loginPwVal = $('#login-pw').val();
+    $.ajax({
+        type: "POST",
+        url: "/login",
+        data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
+        success: function(response){
+        console.log(response);
+        }
+    })
+}
+
+
 //프로필
 
 
