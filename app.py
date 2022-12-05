@@ -42,6 +42,51 @@ def profile():
     db.content.insert_one(doc)
     return jsonify({'msg': '작성 완료'})
 
+#회원가입 페이지
+@app.route("/join", methods=["GET"])
+def join_get():
+    return '회원가입 페이지'
+
+
+#회원 가입
+@app.route("/join", methods=["POST"])
+def join_post():
+    email_receive = request.form['email_give']
+    passwd_receive = request.form['passwd_give']
+    name_receive = request.form['name_give']
+
+    if email_receive == "" or passwd_receive == "" or name_receive == "":
+        return "필수값을 입력하세요"
+
+    doc = {
+        'email': email_receive,
+        'passwd': passwd_receive,
+        'name': name_receive
+    }
+    db.members.insert_one(doc)
+
+    return jsonify({'msg': '가입 완료'})
+
+
+#로그인 페이지
+@app.route("/login", methods=["GET"])
+def login_get():
+    return "로그인 페이지"
+
+#로그인
+@app.route("/login", methods=['POST'])
+def login_post():
+    email_receive = request.form['email_give']
+    passwd_receive = request.form['passwd_give']
+
+    login_member = db.members.find_one({"email": email_receive})
+
+    if login_member.password == passwd_receive:
+        response = make_response()
+
+        return "로그인 전용 홈페이지 입장"
+    else:
+        return '비밀번호가 일치하지 않습니다.'
 
 
 
