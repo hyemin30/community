@@ -54,6 +54,8 @@ def join_post():
     email_receive = request.form['email_give']
     passwd_receive = request.form['passwd_give']
     name_receive = request.form['name_give']
+    lang_receive = request.form['lang_give']
+    blog_url_receive = request.form['blog_url_give']
 
     if email_receive == "" or passwd_receive == "" or name_receive == "":
         return "필수값을 입력하세요"
@@ -61,7 +63,9 @@ def join_post():
     doc = {
         'email': email_receive,
         'passwd': passwd_receive,
-        'name': name_receive
+        'name': name_receive,
+        'lang': lang_receive,
+        'blog_url': blog_url_receive
     }
     db.members.insert_one(doc)
 
