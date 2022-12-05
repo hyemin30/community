@@ -1,0 +1,118 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+.none{
+    display: none;
+}
+  .wrap{
+    max-width: 1200px;
+    width: 95%;
+    margin: 20px auto;
+    height: 100vh;
+    background-color:darkslategrey;
+}
+.h1{
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    font-weight: bold;
+}
+.nav{
+    max-width: 400px;
+    width: 95%;
+    margin: 0 auto 30px;
+}
+.nav-ul{
+    display: flex;
+    justify-items: center;
+}
+.nav-ul li{
+    flex: auto;
+    text-align: center;
+    padding: 10px;
+}
+.nav-ul li a{
+    font-size: 22px;
+    font-weight: bold;
+    color:antiquewhite;
+}
+.nav-ul li a:hover{
+    color:deepskyblue;
+}
+li a{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.info-wrap{
+    max-width: 250px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.info-box{
+    display: flex;
+    justify-items: center;
+}
+.info-box li{
+    flex: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.info-box li a{
+    color:deepskyblue;
+}
+.info-box li a:hover{
+    color:antiquewhite;
+}
+
+
+.section{
+    max-width: 600px;
+    width: 95%;
+    margin: 50px auto 0;
+}
+.section article{
+    margin:20px auto 0;
+    color:#fff;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+.form-wrap label{
+    display: inline-block;
+    width: 60px;
+}
+.form-wrap div{
+    margin-bottom: 10px;
+}
+.form-wrap input{
+    width: 150px;
+}
+.btn-add{
+    margin-top: 20px;
+    padding: 10px;
+    color:#fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+.btn-add:hover{
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+footer{
+    color:aliceblue;
+    margin: 50px auto 20px;
+    text-align: center;
+    position: relative;
+    bottom: -180px;
+}
