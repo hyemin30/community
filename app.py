@@ -104,3 +104,11 @@ def login_post():
         return "로그인 전용 홈페이지 입장"
     else:
         return '비밀번호가 일치하지 않습니다.'
+
+#좋아요
+@app.route('/like', methods=["POST"])
+def like():
+    num_receive = request.form['num_give']
+    content_receive = request.form['content_give']
+    db.postings.update_one({'num': num_receive}, {'$set': {'content': content_receive}})
+    return jsonify({'msg': '작성 완료'})
