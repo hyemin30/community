@@ -107,8 +107,20 @@ def login_post():
 
 #좋아요
 @app.route('/like', methods=["POST"])
-def like():
+def profile():
     num_receive = request.form['num_give']
-    content_receive = request.form['content_give']
-    db.postings.update_one({'num': num_receive}, {'$set': {'content': content_receive}})
-    return jsonify({'msg': '작성 완료'})
+    email_receive = request.form['email_give']
+    likes = list(db.likes.find({"num", num_receive}, {'_id': False}))
+    count = len(likes)
+
+    for like in likes:
+        if email_receive == like['email']:
+            return jsonify({'msg': '이미 좋아요를 눌렀습니다'})
+
+    doc = {
+        'num': num_receive,
+        'email': email_receive,
+        'count': count + 1
+    }
+    db.likes.insert_one(doc)
+    return jsonify({'msg': '좋아요 완료'})
