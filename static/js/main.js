@@ -1,4 +1,8 @@
 
+// 전역 변수
+let noneImport = 'none-import'
+let nowSelect = 'now-select'
+
 // 네비 버튼 클릭
 function viewNavContent(className){
     let articleLen = $('#section').children('article')
@@ -10,7 +14,6 @@ function viewNavContent(className){
         $(className).removeClass('none')
     }
     // 네비 a 태그 클래스 컨트롤
-    let nowSelect = 'now-select'
     $('.nav-ul li a').removeClass(nowSelect)
     $('.info-box li a').removeClass(nowSelect)
     $(event.target).addClass(nowSelect)
@@ -33,6 +36,11 @@ function check_sign(){
             if(msgSign === true){
                 alert(msgSign);
                 return false
+            } else{
+                $('.sign').addClass(noneImport)
+                $('.login').removeClass('none')
+                $('.login-a').addClass(nowSelect)
+                $('.sign-a').removeClass(nowSelect)
             }
         }
     })
@@ -53,7 +61,6 @@ function check_login(){
                 alert(msgLogin);
                 return false
             } else{
-                let noneImport = 'none-import'
                 $('.login').addClass(noneImport)
                 $('.info-wrap').addClass(noneImport)
                 $('.profile').removeClass('none')
