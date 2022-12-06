@@ -1,4 +1,15 @@
 
+let articleLen = $('#section').children('article')
+// 네비 버튼 클릭
+function viewNavContent(className){
+    for(let i=0; i<articleLen.length; i++){
+        let row = $('#section').children(`article:eq(${i})`)
+        if(row.hasClass('none') === false){
+            row.addClass('none')
+        }
+        $(className).removeClass('none')
+    }
+}
 
 // 회원가입
 function check_sign(){
@@ -13,7 +24,7 @@ function check_sign(){
         url: "/sign",
         data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
         success: function(response){
-        console.log(response);
+            alert.log(response['msg']);
         }
     })
 }
@@ -28,7 +39,7 @@ function check_login(){
         url: "/login",
         data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
         success: function(response){
-        console.log(response);
+            alert.log(response['msg']);
         }
     })
 }

@@ -8,28 +8,27 @@
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
     <title>사전 토이 프로젝트</title>
 </head>
 <body>
 <div class="wrap">
     <header>
-        <h1 class="h1">사전 토이 프로젝트</h1>
+        <h1 class="h1"><a href="#">사전 토이 프로젝트</a></h1>
     </header>
     <nav class="nav">
         <ul class="nav-ul">
-            <li class="li-profile"><a href="#">프로필</a></li>
-            <li class="li-write"><a href="#">작성</a></li>
-            <li class="li-list"><a href="#">게시글 목록</a></li>
+            <li class="li-profile"><a href="#" onclick="viewNavContent('.profile')">프로필</a></li>
+            <li class="li-write"><a href="#" onclick="viewNavContent('.post')">작성</a></li>
+            <li class="li-list"><a href="#" onclick="viewNavContent('.postlist')">게시글 목록</a></li>
         </ul>
     </nav>
     <div class="info-wrap">
         <ul class="info-box">
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
+            <li><a href="#" onclick="viewNavContent('.login')">로그인</a></li>
+            <li><a href="#" onclick="viewNavContent('.sign')">회원가입</a></li>
         </ul>
     </div>
-    <section class="section">
+    <section class="section" id="section">
         <article class="profile none">
             <h2>프로필</h2>
             <div class="profile_list">
@@ -61,7 +60,7 @@
                 </div>
             </div>
         </article>
-        <article class="postlist">
+        <article class="postlist none">
             <h2>게시글 목록</h2>
             <div class="postingbox" id="posting-list">
             </div>
@@ -110,5 +109,6 @@
     <footer>copyright by 13조</footer>
 
 </div>
+<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
