@@ -178,19 +178,19 @@ def login_post():
 
     login_member = db.members.find_one({"email": email_receive})
 
+    # 이메일이 DB에 없을 때
+    if login_member == None:
+        return render_template("index.html")
+
     if login_member['passwd'] == passwd_receive:
         response = make_response()
         response.set_cookie('emailCookie', login_member['email'])
 
         return response
     else:
-        return '비밀번호가 일치하지 않습니다.'
+        # 비밀번호/이메일이 올바르지 않을 때
+        return render_template("index.html")
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
