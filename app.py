@@ -138,11 +138,12 @@ def join_post():
 
     for member in member_list:
         if member['email'] == email_receive:
-            return "이미 가입된 이메일 주소입니다."
+            return jsonify({'msg' :"이미 가입이 완료된 이메일입니다."})
 
 
-    if email_receive == "" or passwd_receive == "" or name_receive == "" or lang_receive == "":
-        return "필수값을 입력해주세요."
+
+    if email_receive == "" or passwd_receive == "" or name_receive == "" or lang_receive == "" or blog_url_receive =="":
+        return jsonify({'msg' :"필수값을 입력해주세요"})
 
     doc = {
         'email': email_receive,
