@@ -5,9 +5,11 @@
 .none {
     display: none;
 }
+
 .none-import {
     display: none !important;
 }
+
 .now-select {
     color: blueviolet !important;
 }
@@ -27,7 +29,7 @@
     font-weight: bold;
 }
 
-.h1 a{
+.h1 a {
     display: inline;
     color: #fff;
 }
@@ -59,11 +61,12 @@
     color: blueviolet;
 }
 
-a{
+a {
     display: block;
     width: 100%;
     text-decoration: none;
 }
+
 li a {
     font-size: 20px;
 }
@@ -230,6 +233,6 @@ footer {
     margin-bottom: 0px;
 }
 
-.mybox3 > li > h2.done {
+.postingbox > li > h2.done {
     text-decoration: line-through
 }
