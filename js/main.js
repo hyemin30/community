@@ -65,8 +65,6 @@ function check_login(){
 }
 
 
-//포스트
-
 function save_posting() {
     let post = $('#post').val()
 
@@ -93,12 +91,12 @@ function show_postlist() {
         url: "/postings",
         data: {},
         success: function (response) {
-            let rows = response['postings']
+            let rows = response['readings']
 
             for (let i = 0; i < rows.length; i++) {
-                let post = rows[i]['post']
+                let content = rows[i]['content']
                 let num = rows[i]['num']
-                let done = rows[i]['done']
+                let read = rows[i]['read']
 
                 let temp_html = ``
                 if (done == 0) {
