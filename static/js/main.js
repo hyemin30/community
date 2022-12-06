@@ -33,11 +33,12 @@ function check_sign(){
         data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
         success: function(response){
             let msgSign = response['msg']
+            console.log(msgSign === true)
             if(msgSign === true){
                 alert(msgSign);
                 return false
             } else{
-                $('.sign').addClass(noneImport)
+                $('.sign').addClass('none')
                 $('.login').removeClass('none')
                 $('.login-a').addClass(nowSelect)
                 $('.sign-a').removeClass(nowSelect)
