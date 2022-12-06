@@ -6,11 +6,14 @@ function viewNavContent(className){
         let row = $('#section').children(`article:eq(${i})`)
         if(row.hasClass('none') === false){
             row.addClass('none')
-            row.removeClass('now-select')
         }
         $(className).removeClass('none')
-        $(className).addClass('now-select')
     }
+    // 네비 a 태그 클래스 컨트롤
+    let nowSelect = 'now-select'
+    $('.nav-ul li a').removeClass(nowSelect)
+    $('.info-box li a').removeClass(nowSelect)
+    $(event.target).addClass(nowSelect)
 }
 
 // 회원가입
@@ -50,8 +53,9 @@ function check_login(){
                 alert(msgLogin);
                 return false
             } else{
-                $('.login').addClass('none-import')
-                $('.info-wrap').addClass('none-import')
+                let noneImport = 'none-import'
+                $('.login').addClass(noneImport)
+                $('.info-wrap').addClass(noneImport)
                 $('.profile').removeClass('none')
             }
         }
