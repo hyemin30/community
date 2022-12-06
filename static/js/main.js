@@ -96,7 +96,7 @@ function check_login(){
                                     <td>${blog}</td>
                                 </tr>
                 `
-                $('#profile_list').append(temp_html)
+                $('.profile-box').append(temp_html)
             }
         }
     });
