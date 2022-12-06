@@ -1,4 +1,14 @@
-
+let articleLen = $('#section').children('article')
+// 네비 버튼 클릭
+function viewNavContent(className){
+    for(let i=0; i<articleLen.length; i++){
+        let row = $('#section').children(`article:eq(${i})`)
+        if(row.hasClass('none') === false){
+            row.addClass('none')
+        }
+        $(className).removeClass('none')
+    }
+}
 
 // 회원가입
 function check_sign(){
@@ -13,7 +23,7 @@ function check_sign(){
         url: "/sign",
         data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
         success: function(response){
-        console.log(response);
+            alert(response['msg']);
         }
     })
 }
@@ -28,7 +38,7 @@ function check_login(){
         url: "/login",
         data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
         success: function(response){
-        console.log(response);
+            alert(response['msg']);
         }
     })
 }
@@ -65,8 +75,6 @@ function check_login(){
 }
 
 
-//포스트
-
 function save_posting() {
     let post = $('#post').val()
 
@@ -90,15 +98,15 @@ $(document).ready(function () {
 function show_postlist() {
     $.ajax({
         type: "GET",
-        url: "/postings",
+        url: "/post",
         data: {},
         success: function (response) {
-            let rows = response['postings']
+            let rows = response['readings']
 
             for (let i = 0; i < rows.length; i++) {
-                let post = rows[i]['post']
+                let content = rows[i]['content']
                 let num = rows[i]['num']
-                let done = rows[i]['done']
+                let read = rows[i]['read']
 
                 let temp_html = ``
                 if (done == 0) {
