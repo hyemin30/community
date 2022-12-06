@@ -3,8 +3,11 @@ from importlib.resources import contents
 from flask import Flask, render_template, jsonify, request, make_response
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.jftxkcu.mongodb.net/?retryWrites=true&w=majority')
-db = client.community
+# client = MongoClient('mongodb+srv://test:sparta@cluster0.jftxkcu.mongodb.net/?retryWrites=true&w=majority')
+# db = client.community
+
+client = MongoClient('mongodb+srv://test:Dmg0ltfaNgmxokj5@cluster0.jhc3fyv.mongodb.net/Cluster0?retryWrites=true&w=majority')
+db = client.dbsparta
 app = Flask(__name__)
 
 @app.route('/')
@@ -117,19 +120,19 @@ def posting():
 
 
 #회원가입 페이지
-@app.route("/join", methods=["GET"])
+@app.route("/sign", methods=["GET"])
 def join_get():
     return '회원가입 페이지'
 
 
 #회원 가입
-@app.route("/join", methods=["POST"])
+@app.route("/sign", methods=["POST"])
 def join_post():
     email_receive = request.form['email_give']
-    passwd_receive = request.form['passwd_give']
-    name_receive = request.form['name_give']
+    passwd_receive = request.form['pw_give']
+    name_receive = request.form['nick_give']
     lang_receive = request.form['lang_give']
-    blog_url_receive = request.form['blog_url_give']
+    blog_url_receive = request.form['blog_give']
 
     member_list = list(db.members.find({}, {'_id': False}))
 
@@ -173,23 +176,22 @@ def login_get():
 #로그인
 @app.route("/login", methods=['POST'])
 def login_post():
-    email_receive = request.form['email_give']
-    passwd_receive = request.form['passwd_give']
+    email_receive = request.form['loginEmail_give']
+    passwd_receive = request.form['loginPw_give']
 
     login_member = db.members.find_one({"email": email_receive})
 
     # 이메일이 DB에 없을 때
     if login_member == None:
-        return render_template("index.html")
+        return jsonify({'msg' :'존재하지 않는 이메일입니다.'})
 
     if login_member['passwd'] == passwd_receive:
         response = make_response()
         response.set_cookie('emailCookie', login_member['email'])
-
         return response
     else:
         # 비밀번호/이메일이 올바르지 않을 때
-        return render_template("index.html")
+        return jsonify({'msg' : '비밀번호/이메일이 올바르지 않습니다.'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
