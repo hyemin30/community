@@ -31,56 +31,42 @@
     </div>
     <section class="section">
         <article class="profile none">
-            <div class="order1" id="profile_box1">
-                <div class="order-info">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">이름</span>
-                        <input id="name" type="text" class="form-control">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">블로그</span>
-                        <input id="address" type="text" class="form-control">
-                    </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="size">희망 언어</label>
-                        <select class="form-select" id="size">
-                            <option selected>-- 언어 --</option>
-                            <option value="React">REACT</option>
-                            <option value="Node">NODE.JS</option>
-                            <option value="Spring">SPRING</option>
-                        </select>
-                    </div>
-                    <button onclick="save_order1()" type="button" class="btn btn-warning mybtn3">저장하기</button>
-                </div>
-                <table class="table1">
-                    <tbody id="order-box1">
-                    </tbody>
+            <h2>프로필</h2>
+            <div class="profile_list">
+                <table bordercolor="blue" width="650" height="300" align="center">
+                    <tr align="center" bgcolor="#191970">
+                        <td>닉네임</td>
+                        <td>언어</td>
+                        <td>블로그 링크</td>
+                    </tr>
+                    <!--닉언블 이 공간이 양식에 맞는건지? 질문에 의미는 겟방식으로 긁어 와야하는데 읽히는 방법이 맞는지-->
+                    <tr>
+                        <td>(닉)</td>
+                        <td>(언)</td>
+                        <td>(블)</td>
+                    </tr>
                 </table>
             </div>
         </article>
         <article class="post none">
+            <h2>작성하기</h2>
             <div class="mypost2" id="post-box2">
                 <div class="form-floating">
-                    <textarea id="comment" class="form-control" placeholder="배운점 작성하기"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                              style="width:500px; height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
                 </div>
                 <div class="mybtns2">
-                    <button onclick="posting2()" type="button" class="btn btn-dark">작성하기</button>
+                    <button onclick="save_posting()" type="button" class="btn btn-dark">작성하기</button>
                 </div>
             </div>
         </article>
-        <article class="postlist none">
-            <div class="mybox3" id="post-list3">
-                <li>
-                    <h2> 읽기 미완료</h2>
-                    <button onclick="done_post(5)" type="button" class="btn btn-warning">읽음!</button>
-                </li>
-                <li>
-                    <h2 class="done3"> 읽기 완료</h2>
-                </li>
+        <article class="postlist">
+            <h2>게시글 목록</h2>
+            <div class="postingbox" id="posting-list">
             </div>
         </article>
-        <article class="sign">
+        <article class="sign none">
             <h2>회원가입</h2>
             <div class="form-wrap">
                 <div>

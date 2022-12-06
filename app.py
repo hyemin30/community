@@ -166,9 +166,9 @@ def join_post():
 
 
 #로그인 페이지
-# @app.route("/login", methods=["GET"])
-# def login_get():
-#     return "로그인 페이지"
+@app.route("/login", methods=["GET"])
+def login_get():
+    return "로그인 페이지"
 
 #로그인
 @app.route("/login", methods=['POST'])
@@ -188,12 +188,3 @@ def login_post():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
-
-
-
-
-
-
-
-
-
