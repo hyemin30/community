@@ -147,6 +147,8 @@ def login_post():
         return '비밀번호가 일치하지 않습니다.'
 
 
+if __name__ == '__main__':
+    app.run('0.0.0.0', port=5000, debug=True)
 
 
 
