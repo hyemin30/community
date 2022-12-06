@@ -64,6 +64,7 @@ function check_login(){
                 $('.login').addClass(noneImport)
                 $('.info-wrap').addClass(noneImport)
                 $('.profile').removeClass('none')
+                $('.profile-a').addClass(nowSelect)
             }
         }
     })
