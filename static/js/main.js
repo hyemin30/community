@@ -1,12 +1,15 @@
-let articleLen = $('#section').children('article')
+
 // 네비 버튼 클릭
 function viewNavContent(className){
+    let articleLen = $('#section').children('article')
     for(let i=0; i<articleLen.length; i++){
         let row = $('#section').children(`article:eq(${i})`)
         if(row.hasClass('none') === false){
             row.addClass('none')
+            row.removeClass('now-select')
         }
         $(className).removeClass('none')
+        $(className).addClass('now-select')
     }
 }
 
@@ -23,7 +26,11 @@ function check_sign(){
         url: "/sign",
         data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
         success: function(response){
-            alert(response['msg']);
+            let msgSign = response['msg']
+            if(msgSign === true){
+                alert(msgSign);
+                return false
+            }
         }
     })
 }
@@ -38,7 +45,15 @@ function check_login(){
         url: "/login",
         data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
         success: function(response){
-            alert(response['msg']);
+            let msgLogin = response['msg']
+            if(msgLogin === true) {
+                alert(msgLogin);
+                return false
+            } else{
+                $('.login').addClass('none-import')
+                $('.info-wrap').addClass('none-import')
+                $('.profile').removeClass('none')
+            }
         }
     })
 }

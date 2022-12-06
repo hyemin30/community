@@ -5,6 +5,12 @@
 .none {
     display: none;
 }
+.none-import {
+    display: none !important;
+}
+.now-select {
+    color: blueviolet !important;
+}
 
 .wrap {
     max-width: 1200px;
@@ -49,9 +55,10 @@
     color: antiquewhite;
 }
 
-.nav-ul li a:hover {
-    color: deepskyblue;
+.nav-ul li a:hover, .info-box li a:hover {
+    color: blueviolet;
 }
+
 a{
     display: block;
     width: 100%;
@@ -80,10 +87,6 @@ li a {
 
 .info-box li a {
     color: deepskyblue;
-}
-
-.info-box li a:hover {
-    color: antiquewhite;
 }
 
 
