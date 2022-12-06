@@ -6,8 +6,8 @@ from pymongo import MongoClient
 # client = MongoClient('mongodb+srv://test:sparta@cluster0.jftxkcu.mongodb.net/?retryWrites=true&w=majority')
 # db = client.community
 
-client = MongoClient('mongodb+srv://test:Dmg0ltfaNgmxokj5@cluster0.jhc3fyv.mongodb.net/Cluster0?retryWrites=true&w=majority')
-db = client.dbsparta
+client = MongoClient('mongodb+srv://test:sparta@cluster0.bp52gwd.mongodb.net/?retryWrites=true&w=majority')
+db = client.toyproject
 app = Flask(__name__)
 
 @app.route('/')

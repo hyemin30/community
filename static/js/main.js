@@ -136,14 +136,14 @@ function show_postlist() {
                 let read = rows[i]['read']
 
                 let temp_html = ``
-                if (done == 0) {
+                if (read == 0) {
                     temp_html = `<li>
-                                   <h2>${post}</h2>
+                                   <h2>${content}</h2>
                                    <button onclick="done_posting(${num})" type="button" class="btn btn-outline-primary">읽음!</button>
                                  </li>`
                 } else {
                     temp_html = `<li>
-                                        <h2 class="done">${post}</h2>
+                                        <h2 class="done">${content}</h2>
                                         </li>`
                 }
                 $('#posting-list').append(temp_html)
@@ -153,14 +153,14 @@ function show_postlist() {
     });
 }
 
-// function done_posting(num) {
-//     $.ajax({
-//         type: "POST",
-//         url: "/post/done",
-//         data: {num_give: num},
-//         success: function (response) {
-//             alert(response["msg"])
-//             window.location.reload()
-//         }
-//     });
-// }
+function done_posting(num) {
+    $.ajax({
+        type: "POST",
+        url: "/read",
+        data: {num_give: num},
+        success: function (response) {
+            alert(response["msg"])
+            window.location.reload()
+        }
+    });
+}
