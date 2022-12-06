@@ -58,6 +58,7 @@ function check_login(){
         data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
         success: function(response){
             let msgLogin = response['msg']
+            console.log(msgLogin === true)
             if(msgLogin === true) {
                 alert(msgLogin);
                 return false
