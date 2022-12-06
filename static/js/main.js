@@ -33,8 +33,8 @@ function check_sign(){
         data: {email_give: emailVal, pw_give: pwVal, nick_give: nicknameVal, lang_give: langVal, blog_give: blogVal},
         success: function(response){
             let msgSign = response['msg']
-            console.log(msgSign === true)
-            if(msgSign === true){
+            console.log(msgSign)
+            if(msgSign !== undefined){
                 alert(msgSign);
                 return false
             } else{
@@ -58,8 +58,7 @@ function check_login(){
         data: {loginEmail_give: loginEmailVal, loginPw_give: loginPwVal},
         success: function(response){
             let msgLogin = response['msg']
-            console.log(msgLogin === true)
-            if(msgLogin === true) {
+            if(msgLogin !== undefined) {
                 alert(msgLogin);
                 return false
             } else{
