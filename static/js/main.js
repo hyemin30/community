@@ -35,20 +35,31 @@ function check_login(){
 
 
 //프로필
+    $(document).ready(function () {
+    show_profile();
+    });
 
-
-function save_order1() {
-    let name = $('#name').val()
-    let blog = $('#blog').val()
-    let lang = $('#lang').val()
-
+    function show_profile(){
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '/profile',
-        data: {name_give: name, blog_give: blog, lang_give: lang},
+        data: {},
         success: function (response) {
-            alert(response['msg'])
-            window.location.reload()
+            let rows = response['profile']
+            for (let i = 0; i < rows.length; i++){
+                let nickname = rows[i]['name']
+                let language = rows[i]['lang']
+                let blog = rows[i]['blog_url']
+
+                let temp_html =`
+                                <tr>
+                                    <td>${nickname}</td>
+                                    <td>${language}</td>
+                                    <td>${blog}</td>
+                                </tr>
+                `
+                $('#profile_list').append(temp_html)
+            }
         }
     });
 }
@@ -56,13 +67,13 @@ function save_order1() {
 
 //포스트
 
-function posting2() {
-    let post = $('#post2').val()
+function save_posting() {
+    let post = $('#post').val()
 
     $.ajax({
         type: 'POST',
-        url: '/post',
-        data: {post_give: post},
+        url: '/posting',
+        data: {content_give: post},
         success: function (response) {
             alert(response['msg'])
             window.location.reload()
@@ -73,16 +84,17 @@ function posting2() {
 //리스트
 
 $(document).ready(function () {
-    // show_postlist3();
+    show_postlist();
 });
 
-function show_postlist3() {
+function show_postlist() {
     $.ajax({
         type: "GET",
-        url: "/post",
+        url: "/postings",
         data: {},
         success: function (response) {
-            let rows = response['post']
+            let rows = response['postings']
+
             for (let i = 0; i < rows.length; i++) {
                 let post = rows[i]['post']
                 let num = rows[i]['num']
@@ -91,28 +103,29 @@ function show_postlist3() {
                 let temp_html = ``
                 if (done == 0) {
                     temp_html = `<li>
-                                            <h2>${post}</h2>
-                                            <button onclick="done_bucket3(${num})" type="button" class="btn btn-outline-primary">읽음!</button>
-                                        </li>`
+                                   <h2>${post}</h2>
+                                   <button onclick="done_posting(${num})" type="button" class="btn btn-outline-primary">읽음!</button>
+                                 </li>`
                 } else {
                     temp_html = `<li>
                                         <h2 class="done">${post}</h2>
                                         </li>`
                 }
-                $('#post-list3').append(temp_html)
+                $('#posting-list').append(temp_html)
             }
+
         }
     });
 }
 
-function done_bucket3(num) {
-    $.ajax({
-        type: "POST",
-        url: "/post/done",
-        data: {num_give: num},
-        success: function (response) {
-            alert(response["msg"])
-            window.location.reload()
-        }
-    });
-}
+// function done_posting(num) {
+//     $.ajax({
+//         type: "POST",
+//         url: "/post/done",
+//         data: {num_give: num},
+//         success: function (response) {
+//             alert(response["msg"])
+//             window.location.reload()
+//         }
+//     });
+// }
