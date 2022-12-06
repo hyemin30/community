@@ -215,7 +215,7 @@ footer {
     width: 70%;
 }
 
-.mybox3 > li {
+.postingbox > li {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -225,7 +225,7 @@ footer {
     min-height: 48px;
 }
 
-.mybox3 > li > h2 {
+.postingbox > li > h2 {
     max-width: 75%;
     font-size: 20px;
     font-weight: 500;
