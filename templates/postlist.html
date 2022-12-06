@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <title>게시글 리스트</title>
+
+    <style>
+        .maintitle {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        .mybox {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px lightblue;
+            margin: 20px auto;
+        }
+
+
+        .mybucket > input {
+            width: 70%;
+        }
+
+        .mybox > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybox > li > h2 {
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybox > li > h2.done {
+            text-decoration: line-through
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#post-list').hide();
+        });
+
+        $(document).ready(function () {
+            show_postlist();
+        });
+
+        function show_postlist() {
+            $.ajax({
+                type: "GET",
+                url: "/post",
+                data: {},
+                success: function (response) {
+                    let rows = response['post']
+                    for (let i = 0; i < rows.length; i++) {
+                        let post = rows[i]['post']
+                        let num = rows[i]['num']
+                        let done = rows[i]['done']
+
+                        let temp_html = ``
+                        if (done == 0) {
+                            temp_html = `<li>
+                                            <h2>${post}</h2>
+                                            <button onclick="done_bucket(${num})" type="button" class="btn btn-outline-primary">읽음!</button>
+                                        </li>`
+                        } else {
+                            temp_html = `<li>
+                                        <h2 class="done">${post}</h2>
+                                        </li>`
+                        }
+                        $('#post-list').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function done_bucket(num) {
+            $.ajax({
+                type: "POST",
+                url: "/post/done",
+                data: {num_give:num},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
+
+        function open_box() {
+            $('#post-list').show()
+        }
+    </script>
+</head>
+<body>
+<div class="maintitle">
+        <h1>게시물 목록</h1>
+        <button onclick="open_box()" type="button" class="btn btn-warning">목록보기</button>
+</div>
+<div class="mybox" id="post-list">
+    <li>
+        <h2> 읽기 미완료</h2>
+        <button onclick="done_post(5)" type="button" class="btn btn-warning">읽음!</button>
+    </li>
+    <li>
+        <h2 class="done"> 읽기 완료</h2>
+    </li>
+
+</div>
+</body>
+</html>
