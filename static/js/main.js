@@ -95,11 +95,11 @@ function check_login(){
 
 
 function save_posting() {
-    let post = $('#post').val()
+    let post = $('#floatingTextarea2').val()
 
     $.ajax({
         type: 'POST',
-        url: '/posting',
+        url: '/post',
         data: {content_give: post},
         success: function (response) {
             alert(response['msg'])
