@@ -18,7 +18,7 @@
     max-width: 1200px;
     width: 95%;
     margin: 20px auto;
-    height: 100vh;
+    min-height: 100vh;
     background-color: darkslategrey;
 }
 
@@ -139,10 +139,9 @@ h2 {
 
 footer {
     color: aliceblue;
-    margin: 50px auto 20px;
+    margin: 100px auto 0px;
     text-align: center;
-    position: relative;
-    bottom: -180px;
+    padding-bottom: 50px;
 }
 
 /*프로필*/
